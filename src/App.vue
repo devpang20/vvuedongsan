@@ -1,17 +1,29 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <h4 :style="testStyle">XX 원룸</h4>
+      <p>{{ price1 }} 만원</p>
+    </div>
+    <div>
+      <h4>XX 원룸</h4>
+      <p>{{ price2 }} 만원</p>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      price1 : 80,
+      price2 : 90,
+      testStyle : 'color : red'
+    }
+  },
   components: {
-    HelloWorld
   }
 }
 </script>
