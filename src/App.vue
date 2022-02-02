@@ -5,11 +5,7 @@
       <a v-for="(a, i) in menus" :key="i" >{{ a }}</a>
     </div>
     <Discount/>
-    <div v-for="(room, i) in oneRooms" :key="i">
-      <img :src="room.image" alt="썸넬" class="room-img">
-      <h4 @click="isOpen = true; clickIndex = i">{{ room.title }} 원룸</h4>
-      <p>{{ room.price }}</p>
-    </div>
+    <Card v-for="(room, i) in oneRooms" :key="i" :room="oneRooms[i]" :clickIndex="clickIndex" :isOpen="isOpen" />
   </div>
 </template>
 
@@ -18,6 +14,7 @@
 import data from './assets/oneroom'
 import Discount from './components/Discount'
 import Modal from './components/Modal'
+import Card from './components/Card'
 
 export default {
   name: 'App',
@@ -39,7 +36,8 @@ export default {
   },
   components: {
     Discount,
-    Modal
+    Modal,
+    Card
   }
 }
 </script>
