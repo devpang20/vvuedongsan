@@ -1,15 +1,10 @@
 <template>
   <div id="app">
-    <div class="black-bg" v-if="isOpen == true">
-      <div class="white-bg">
-        <h4>{{ oneRooms[clickIndex].title }}</h4>
-        <p>상세페이지 내용임</p>
-        <button @click="isOpen = false">닫기</button>
-      </div>
-    </div>
+    <Modal :oneRooms="oneRooms" :clickIndex="clickIndex" :isOpen="isOpen" />
     <div class="menu">
       <a v-for="(a, i) in menus" :key="i" >{{ a }}</a>
     </div>
+    <Discount/>
     <div v-for="(room, i) in oneRooms" :key="i">
       <img :src="room.image" alt="썸넬" class="room-img">
       <h4 @click="isOpen = true; clickIndex = i">{{ room.title }} 원룸</h4>
@@ -21,6 +16,8 @@
 <script>
 
 import data from './assets/oneroom'
+import Discount from './components/Discount'
+import Modal from './components/Modal'
 
 export default {
   name: 'App',
@@ -41,6 +38,8 @@ export default {
     }
   },
   components: {
+    Discount,
+    Modal
   }
 }
 </script>
