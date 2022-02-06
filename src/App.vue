@@ -5,7 +5,7 @@
       <a v-for="(a, i) in menus" :key="i" >{{ a }}</a>
     </div>
     <Discount/>
-    <Card v-for="(room, i) in oneRooms" :key="i" :room="oneRooms[i]" :clickIndex="clickIndex" :isOpen="isOpen" />
+    <Card @openModal="isOpen = true; clickIndex = $event" v-for="(room, i) in oneRooms" :key="i" :room="oneRooms[i]" :clickIndex="clickIndex" :isOpen="isOpen" />
   </div>
 </template>
 
