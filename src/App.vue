@@ -31,7 +31,8 @@ export default {
   name: 'App',
   data() {
     return {
-      postData
+      postData,
+      moreCount: 0
     }
   },
   components: {
@@ -39,9 +40,10 @@ export default {
   },
   methods: {
     more() {
-      axios.get('https://codingapple1.github.io/vue/more0.json').then(response => {
+      axios.get(`https://codingapple1.github.io/vue/more${this.moreCount}.json`).then(response => {
         console.log('response', response)
         this.postData.push(response.data)
+        this.moreCount++
       })
     }
   }
