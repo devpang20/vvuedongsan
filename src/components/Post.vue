@@ -1,10 +1,10 @@
 <template>
   <div class="post">
       <div class="post-header">
-        <div class="profile"></div>
+        <div class="profile" :style="{backgroundImage : 'url(' + post.userImage + ')' }"></div>
         <span class="profile-name">{{ post.name }}</span>
       </div>
-      <div class="post-body"></div>
+      <div class="post-body" :style="{backgroundImage : 'url(' + post.postImage + ')' }"></div>
       <div class="post-content">
         <p>{{ post.likes }} Likes</p>
         <p><strong>{{ post.filter }}</strong> {{ post.content }}</p>
@@ -27,7 +27,6 @@ export default {
   width: 100%;
 }
 .profile {
-  background-image: url("https://placeimg.com/100/100/arch");
   width: 30px;
   height: 30px;
   background-size: 100%;
@@ -46,7 +45,6 @@ export default {
   padding: 10px;
 }
 .post-body {
-  background-image: url("https://placeimg.com/640/480/animals");
   height: 450px;
   background-position: center;
   background-size: cover;
