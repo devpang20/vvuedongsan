@@ -10,12 +10,13 @@
         <img src="./assets/logo.png" class="logo" />
       </div>
 
-      <Container :postData="postData" :step="step" />
+      <Container :image="image" :postData="postData" :step="step" />
       <button @click="more">더보기</button>
 
       <div class="footer">
         <ul class="footer-button-plus">
-          <input type="file" id="file" class="inputfile" />
+          <!-- multiple 속성, accept="image/*" -->
+          <input @change="upload" type="file" id="file" class="inputfile" />
           <label for="file" class="input-plus">+</label>
         </ul>
      </div>
@@ -33,7 +34,8 @@ export default {
     return {
       step: 0,
       postData,
-      moreCount: 0
+      moreCount: 0,
+      image: ''
     }
   },
   components: {
@@ -46,6 +48,12 @@ export default {
         this.postData.push(response.data)
         this.moreCount++
       })
+    },
+    upload(e) {
+      let file = e.target.files;
+      let url = URL.createObjectURL(file[0])
+      this.image = url
+      this.step++
     }
   }
 

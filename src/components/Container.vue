@@ -4,7 +4,7 @@
       <Post v-for="(post, i) in postData" :key="i" :post="post" />
     </div>
     <div v-if="step === 1">
-      <div class="upload-image"></div>
+      <div class="upload-image" :style="`background-image:url(${image})`"></div>
       <div class="filters">
         <div class="filter-1"></div>
         <div class="filter-1"></div>
@@ -15,7 +15,7 @@
     </div>
 
     <div v-if="step === 2">
-      <div class="upload-image"></div>
+      <div class="upload-image" :style="`background-image:url(${image})`"></div>
       <div class="write">
         <textarea class="write-box">write!</textarea>
       </div>
@@ -33,7 +33,8 @@ export default {
   },
   props: {
     postData: Array,
-    step: Number
+    step: Number,
+    image: String
   }
 }
 
