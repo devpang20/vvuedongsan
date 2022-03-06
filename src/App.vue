@@ -10,7 +10,7 @@
         <img src="./assets/logo.png" class="logo" />
       </div>
 
-      <Container :postData="postData"/>
+      <Container :postData="postData" :step="step" />
       <button @click="more">더보기</button>
 
       <div class="footer">
@@ -31,6 +31,7 @@ export default {
   name: 'App',
   data() {
     return {
+      step: 0,
       postData,
       moreCount: 0
     }
